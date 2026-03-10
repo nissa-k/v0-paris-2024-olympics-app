@@ -1,13 +1,11 @@
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { InnovationHero } from "@/components/innovation/innovation-hero"
-import { TechHighlights } from "@/components/innovation/tech-highlights"
-import { BroadcastInnovation } from "@/components/innovation/broadcast-innovation"
-import { SustainabilityTech } from "@/components/innovation/sustainability-tech"
+import { TechReport } from "@/components/innovation/tech-report"
 
 export const metadata = {
   title: "Technology Innovation | Paris 2024",
-  description: "Learn about the cutting-edge technologies and innovations that powered the most advanced Olympic Games in history",
+  description: "Interactive technology report about the innovations used during the Paris 2024 Olympic Games",
 }
 
 export default function InnovationPage() {
@@ -16,9 +14,7 @@ export default function InnovationPage() {
       <Navigation />
       <main className="flex-1">
         <InnovationHero />
-        <TechHighlights />
-        <BroadcastInnovation />
-        <SustainabilityTech />
+        <TechReport />
       </main>
       <Footer />
     </div>
