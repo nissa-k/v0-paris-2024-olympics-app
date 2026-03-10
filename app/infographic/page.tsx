@@ -1,13 +1,13 @@
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { GovernanceHero } from "@/components/infographic/governance-hero"
-import { IOCStructure } from "@/components/infographic/ioc-structure"
-import { ParisCommittee } from "@/components/infographic/paris-committee"
-import { DecisionFlow } from "@/components/infographic/decision-flow"
+import { GovernanceDiagram } from "@/components/infographic/governance-diagram"
+import { BudgetSection } from "@/components/infographic/budget-section"
+import { SustainabilitySection } from "@/components/infographic/sustainability-section"
 
 export const metadata = {
   title: "Olympic Governance | Paris 2024",
-  description: "Explore the organizational structure of the International Olympic Committee and Paris 2024 organizing committee",
+  description: "Explore the governance structure, budget, and sustainability initiatives of the Paris 2024 Olympic Games",
 }
 
 export default function InfographicPage() {
@@ -16,9 +16,9 @@ export default function InfographicPage() {
       <Navigation />
       <main className="flex-1">
         <GovernanceHero />
-        <IOCStructure />
-        <ParisCommittee />
-        <DecisionFlow />
+        <GovernanceDiagram />
+        <BudgetSection />
+        <SustainabilitySection />
       </main>
       <Footer />
     </div>
