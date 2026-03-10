@@ -1,13 +1,10 @@
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
-import { DashboardHero } from "@/components/dashboard/dashboard-hero"
-import { MedalTable } from "@/components/dashboard/medal-table"
-import { PerformanceCharts } from "@/components/dashboard/performance-charts"
-import { TopAthletes } from "@/components/dashboard/top-athletes"
+import { AthleteDashboard } from "@/components/dashboard/athlete-dashboard"
 
 export const metadata = {
-  title: "Athlete Dashboard | Paris 2024",
-  description: "Explore athlete performance data, medal statistics, and country rankings from the Paris 2024 Olympic Games",
+  title: "Leon Marchand Performance Dashboard | Paris 2024",
+  description: "Explore Leon Marchand's historic performance at the Paris 2024 Olympic Games with interactive charts and statistics",
 }
 
 export default function DashboardPage() {
@@ -15,10 +12,7 @@ export default function DashboardPage() {
     <div className="flex min-h-screen flex-col">
       <Navigation />
       <main className="flex-1">
-        <DashboardHero />
-        <MedalTable />
-        <PerformanceCharts />
-        <TopAthletes />
+        <AthleteDashboard />
       </main>
       <Footer />
     </div>
