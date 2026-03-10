@@ -148,36 +148,45 @@ export function AthleteDashboard() {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="bg-primary py-12 md:py-20">
-        <div className="container mx-auto px-4">
+      <section className="relative overflow-hidden bg-gradient-to-br from-purple via-purple to-blue py-16 md:py-24">
+        {/* Background elements */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:3rem_3rem]" />
+          <div className="absolute right-0 top-0 h-[400px] w-[400px] translate-x-1/3 -translate-y-1/3 rounded-full bg-gold/20 blur-[100px]" />
+          <div className="absolute bottom-0 left-0 h-[300px] w-[300px] -translate-x-1/3 translate-y-1/3 rounded-full bg-blue/30 blur-[80px]" />
+        </div>
+        
+        <div className="container relative mx-auto px-4 md:px-6 lg:px-8">
           <div className="flex flex-col items-center gap-8 md:flex-row md:gap-12">
             <div className="relative">
-              <div className="flex h-32 w-32 items-center justify-center rounded-full bg-primary-foreground/10 md:h-40 md:w-40">
-                <Waves className="h-16 w-16 text-primary-foreground md:h-20 md:w-20" />
+              <div className="flex h-32 w-32 items-center justify-center rounded-full border-4 border-white/20 bg-white/10 backdrop-blur-sm md:h-40 md:w-40">
+                <Waves className="h-16 w-16 text-gold md:h-20 md:w-20" />
               </div>
-              <div className="absolute -bottom-2 -right-2 flex h-12 w-12 items-center justify-center rounded-full bg-secondary">
+              <div className="absolute -bottom-2 -right-2 flex h-12 w-12 items-center justify-center rounded-full bg-gold shadow-lg">
                 <span className="text-lg font-bold text-secondary-foreground">FR</span>
               </div>
             </div>
             <div className="text-center md:text-left">
-              <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-primary-foreground/10 px-4 py-1.5 text-sm text-primary-foreground">
-                <Trophy className="h-4 w-4" />
+              <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-5 py-2 text-sm font-medium text-white backdrop-blur-sm">
+                <Trophy className="h-4 w-4 text-gold" />
                 <span>Swimming Legend</span>
               </div>
-              <h1 className="mb-2 text-3xl font-bold text-primary-foreground md:text-5xl">
+              <h1 className="mb-3 text-4xl font-extrabold tracking-tight text-white md:text-5xl lg:text-6xl">
                 Leon Marchand
               </h1>
-              <p className="mb-4 text-lg text-primary-foreground/80">
+              <p className="mb-6 text-lg text-white/80 md:text-xl">
                 France&apos;s Swimming Sensation | Paris 2024 Olympic Champion
               </p>
               <div className="flex flex-wrap justify-center gap-3 md:justify-start">
-                <Badge className="bg-yellow-400 text-yellow-900 hover:bg-yellow-400">
-                  {stats.gold} Gold Medals
+                <Badge className="h-8 gap-1.5 bg-gold px-4 text-sm font-semibold text-secondary-foreground hover:bg-gold/90">
+                  <Medal className="h-4 w-4" />
+                  {stats.gold} Gold
                 </Badge>
-                <Badge className="bg-amber-600 text-amber-100 hover:bg-amber-600">
-                  {stats.bronze} Bronze Medal
+                <Badge className="h-8 gap-1.5 bg-amber-600 px-4 text-sm font-semibold text-white hover:bg-amber-600/90">
+                  <Medal className="h-4 w-4" />
+                  {stats.bronze} Bronze
                 </Badge>
-                <Badge variant="secondary">
+                <Badge className="h-8 bg-white/20 px-4 text-sm font-semibold text-white backdrop-blur-sm hover:bg-white/30">
                   {stats.total} Total Medals
                 </Badge>
               </div>
@@ -187,70 +196,78 @@ export function AthleteDashboard() {
       </section>
 
       {/* Medal Summary Cards */}
-      <section className="border-b py-8">
-        <div className="container mx-auto px-4">
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            <Card>
+      <section className="border-b border-border/50 py-8 md:py-12">
+        <div className="container mx-auto px-4 md:px-6 lg:px-8">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+            <Card className="group overflow-hidden border-border/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
               <CardContent className="flex items-center gap-4 p-6">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-yellow-100">
-                  <Medal className="h-6 w-6 text-yellow-600" />
+                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-gold/20 to-gold/10 transition-transform duration-300 group-hover:scale-110">
+                  <Medal className="h-7 w-7 text-gold" />
                 </div>
                 <div>
-                  <p className="text-2xl font-bold">{stats.gold}</p>
-                  <p className="text-sm text-muted-foreground">Gold Medals</p>
+                  <p className="text-3xl font-bold tracking-tight">{stats.gold}</p>
+                  <p className="text-sm font-medium text-muted-foreground">Gold Medals</p>
                 </div>
               </CardContent>
+              <div className="h-1 w-0 bg-gradient-to-r from-gold to-gold/50 transition-all duration-500 group-hover:w-full" />
             </Card>
-            <Card>
+            <Card className="group overflow-hidden border-border/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
               <CardContent className="flex items-center gap-4 p-6">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-amber-100">
-                  <Medal className="h-6 w-6 text-amber-700" />
+                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-amber-600/20 to-amber-600/10 transition-transform duration-300 group-hover:scale-110">
+                  <Medal className="h-7 w-7 text-amber-600" />
                 </div>
                 <div>
-                  <p className="text-2xl font-bold">{stats.bronze}</p>
-                  <p className="text-sm text-muted-foreground">Bronze Medal</p>
+                  <p className="text-3xl font-bold tracking-tight">{stats.bronze}</p>
+                  <p className="text-sm font-medium text-muted-foreground">Bronze Medal</p>
                 </div>
               </CardContent>
+              <div className="h-1 w-0 bg-gradient-to-r from-amber-600 to-amber-600/50 transition-all duration-500 group-hover:w-full" />
             </Card>
-            <Card>
+            <Card className="group overflow-hidden border-border/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
               <CardContent className="flex items-center gap-4 p-6">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
-                  <Timer className="h-6 w-6 text-primary" />
+                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-purple/20 to-purple/10 transition-transform duration-300 group-hover:scale-110">
+                  <Timer className="h-7 w-7 text-purple" />
                 </div>
                 <div>
-                  <p className="text-2xl font-bold">5</p>
-                  <p className="text-sm text-muted-foreground">Events Competed</p>
+                  <p className="text-3xl font-bold tracking-tight">5</p>
+                  <p className="text-sm font-medium text-muted-foreground">Events Competed</p>
                 </div>
               </CardContent>
+              <div className="h-1 w-0 bg-gradient-to-r from-purple to-purple/50 transition-all duration-500 group-hover:w-full" />
             </Card>
-            <Card>
+            <Card className="group overflow-hidden border-border/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
               <CardContent className="flex items-center gap-4 p-6">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-green-100">
-                  <TrendingDown className="h-6 w-6 text-green-600" />
+                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-green-500/20 to-green-500/10 transition-transform duration-300 group-hover:scale-110">
+                  <TrendingDown className="h-7 w-7 text-green-600" />
                 </div>
                 <div>
-                  <p className="text-2xl font-bold">-{stats.totalImprovement.toFixed(2)}s</p>
-                  <p className="text-sm text-muted-foreground">Total Time Improved</p>
+                  <p className="text-3xl font-bold tracking-tight">-{stats.totalImprovement.toFixed(2)}s</p>
+                  <p className="text-sm font-medium text-muted-foreground">Total Improved</p>
                 </div>
               </CardContent>
+              <div className="h-1 w-0 bg-gradient-to-r from-green-500 to-green-500/50 transition-all duration-500 group-hover:w-full" />
             </Card>
           </div>
         </div>
       </section>
 
       {/* Filters */}
-      <section className="border-b bg-muted/30 py-6">
-        <div className="container mx-auto px-4">
+      <section className="border-b border-border/50 bg-muted/30 py-6">
+        <div className="container mx-auto px-4 md:px-6 lg:px-8">
           <div className="flex flex-wrap items-center gap-4">
-            <div className="flex items-center gap-2 text-sm font-medium text-muted-foreground">
-              <Filter className="h-4 w-4" />
-              Filters:
+            <div className="flex items-center gap-2 text-sm font-semibold text-foreground">
+              <Filter className="h-4 w-4 text-primary" />
+              Filters
             </div>
             <div className="flex flex-wrap gap-2">
               <Button
                 size="sm"
                 variant={eventFilter === "all" ? "default" : "outline"}
                 onClick={() => setEventFilter("all")}
+                className={cn(
+                  "rounded-full transition-all duration-200",
+                  eventFilter === "all" && "bg-primary shadow-md"
+                )}
               >
                 All Events
               </Button>
@@ -258,6 +275,10 @@ export function AthleteDashboard() {
                 size="sm"
                 variant={eventFilter === "individual" ? "default" : "outline"}
                 onClick={() => setEventFilter("individual")}
+                className={cn(
+                  "rounded-full transition-all duration-200",
+                  eventFilter === "individual" && "bg-primary shadow-md"
+                )}
               >
                 Individual
               </Button>
@@ -265,16 +286,24 @@ export function AthleteDashboard() {
                 size="sm"
                 variant={eventFilter === "relay" ? "default" : "outline"}
                 onClick={() => setEventFilter("relay")}
+                className={cn(
+                  "rounded-full transition-all duration-200",
+                  eventFilter === "relay" && "bg-primary shadow-md"
+                )}
               >
                 Relay
               </Button>
             </div>
-            <div className="h-6 w-px bg-border" />
+            <div className="hidden h-6 w-px bg-border sm:block" />
             <div className="flex flex-wrap gap-2">
               <Button
                 size="sm"
                 variant={medalFilter === "all" ? "default" : "outline"}
                 onClick={() => setMedalFilter("all")}
+                className={cn(
+                  "rounded-full transition-all duration-200",
+                  medalFilter === "all" && "bg-primary shadow-md"
+                )}
               >
                 All Medals
               </Button>
@@ -282,7 +311,10 @@ export function AthleteDashboard() {
                 size="sm"
                 variant={medalFilter === "gold" ? "default" : "outline"}
                 onClick={() => setMedalFilter("gold")}
-                className={medalFilter === "gold" ? "bg-yellow-500 hover:bg-yellow-600" : ""}
+                className={cn(
+                  "rounded-full transition-all duration-200",
+                  medalFilter === "gold" && "bg-gold text-secondary-foreground shadow-md hover:bg-gold/90"
+                )}
               >
                 Gold Only
               </Button>
@@ -290,7 +322,10 @@ export function AthleteDashboard() {
                 size="sm"
                 variant={medalFilter === "bronze" ? "default" : "outline"}
                 onClick={() => setMedalFilter("bronze")}
-                className={medalFilter === "bronze" ? "bg-amber-600 hover:bg-amber-700" : ""}
+                className={cn(
+                  "rounded-full transition-all duration-200",
+                  medalFilter === "bronze" && "bg-amber-600 text-white shadow-md hover:bg-amber-700"
+                )}
               >
                 Bronze Only
               </Button>

@@ -1,7 +1,6 @@
 "use client"
 
 import { Network, ChevronDown } from "lucide-react"
-import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 
 export function GovernanceHero() {
@@ -11,81 +10,70 @@ export function GovernanceHero() {
   }
 
   return (
-    <section className="relative bg-primary py-20 md:py-28 overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <svg className="h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-          <defs>
-            <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
-              <path d="M 10 0 L 0 0 0 10" fill="none" stroke="currentColor" strokeWidth="0.5" />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#grid)" />
-        </svg>
+    <section className="relative min-h-[70vh] overflow-hidden bg-gradient-to-br from-purple via-purple to-blue">
+      {/* Animated background elements */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:3rem_3rem]" />
+        <div className="absolute right-0 top-0 h-[500px] w-[500px] translate-x-1/3 -translate-y-1/3 rounded-full bg-gold/20 blur-[100px]" />
+        <div className="absolute bottom-0 left-0 h-[400px] w-[400px] -translate-x-1/3 translate-y-1/3 rounded-full bg-blue/30 blur-[80px]" />
       </div>
 
-      {/* Animated Circles */}
-      <div className="absolute top-1/4 left-1/4 h-64 w-64 rounded-full border border-primary-foreground/10 animate-pulse" />
-      <div className="absolute bottom-1/4 right-1/4 h-48 w-48 rounded-full border border-primary-foreground/10 animate-pulse" style={{ animationDelay: "0.5s" }} />
-      <div className="absolute top-1/2 right-1/3 h-32 w-32 rounded-full border border-primary-foreground/10 animate-pulse" style={{ animationDelay: "1s" }} />
+      {/* Animated connection circles */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute left-1/4 top-1/4 h-64 w-64 rounded-full border border-white/10 animate-pulse" />
+        <div className="absolute bottom-1/4 right-1/4 h-48 w-48 rounded-full border border-white/10 animate-pulse" style={{ animationDelay: "0.5s" }} />
+        <div className="absolute left-1/2 top-1/2 h-32 w-32 -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/10 animate-pulse" style={{ animationDelay: "1s" }} />
+      </div>
 
-      <div className="container relative mx-auto px-4">
+      <div className="container relative mx-auto flex min-h-[70vh] flex-col items-center justify-center px-4 py-20 md:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
-          <Badge 
-            variant="secondary" 
-            className="mb-6 bg-primary-foreground/10 text-primary-foreground border-primary-foreground/20 hover:bg-primary-foreground/20"
-          >
-            <Network className="mr-2 h-3.5 w-3.5" />
-            Interactive Infographic
-          </Badge>
+          {/* Badge */}
+          <div className="animate-fade-in-up mb-8 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-5 py-2.5 text-sm font-medium text-white backdrop-blur-sm">
+            <Network className="h-4 w-4" />
+            <span>Interactive Infographic</span>
+          </div>
           
-          <h1 className="mb-6 text-balance text-4xl font-bold tracking-tight text-primary-foreground md:text-5xl lg:text-6xl">
-            Paris 2024 Olympic{" "}
-            <span className="text-secondary">Governance</span>
+          {/* Main heading */}
+          <h1 className="animate-fade-in-up animation-delay-100 mb-6 text-balance text-4xl font-extrabold tracking-tight text-white sm:text-5xl md:text-6xl">
+            Paris 2024 Olympic
+            <span className="mt-2 block bg-gradient-to-r from-gold via-white to-gold bg-clip-text text-transparent">
+              Governance
+            </span>
           </h1>
           
-          <p className="mb-8 text-pretty text-lg text-primary-foreground/80 md:text-xl">
+          {/* Description */}
+          <p className="animate-fade-in-up animation-delay-200 mx-auto mb-10 max-w-2xl text-pretty text-base leading-relaxed text-white/80 sm:text-lg md:text-xl">
             Explore the organizational structure, budget allocation, and sustainability 
             initiatives behind the Paris 2024 Olympic Games.
           </p>
 
           {/* Quick Stats */}
-          <div className="mb-10 flex flex-wrap justify-center gap-6 md:gap-10">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-secondary md:text-4xl">3</div>
-              <div className="text-sm text-primary-foreground/70">Key Entities</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-secondary md:text-4xl">4.494B</div>
-              <div className="text-sm text-primary-foreground/70">Total Budget</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-secondary md:text-4xl">95%</div>
-              <div className="text-sm text-primary-foreground/70">Existing Venues</div>
-            </div>
+          <div className="animate-fade-in-up animation-delay-300 mb-12 flex flex-wrap justify-center gap-6 md:gap-12">
+            {[
+              { value: "3", label: "Key Entities" },
+              { value: "4.494B", label: "Total Budget" },
+              { value: "95%", label: "Existing Venues" },
+            ].map((stat) => (
+              <div key={stat.label} className="text-center">
+                <div className="text-3xl font-bold text-gold md:text-4xl">{stat.value}</div>
+                <div className="text-sm text-white/70">{stat.label}</div>
+              </div>
+            ))}
           </div>
 
           <Button 
-            variant="secondary" 
             size="lg" 
-            className="group"
+            className="animate-fade-in-up animation-delay-400 group h-12 gap-2 rounded-full bg-gold px-8 text-base font-semibold text-secondary-foreground shadow-lg shadow-gold/25 transition-all duration-300 hover:bg-gold/90 hover:shadow-xl"
             onClick={scrollToContent}
           >
             Explore the Structure
-            <ChevronDown className="ml-2 h-4 w-4 transition-transform group-hover:translate-y-1" />
+            <ChevronDown className="h-4 w-4 transition-transform group-hover:translate-y-1" />
           </Button>
         </div>
       </div>
 
-      {/* Bottom Wave */}
-      <div className="absolute bottom-0 left-0 right-0">
-        <svg viewBox="0 0 1440 60" fill="none" className="w-full h-auto">
-          <path 
-            d="M0 60V30C240 10 480 0 720 0C960 0 1200 10 1440 30V60H0Z" 
-            className="fill-background"
-          />
-        </svg>
-      </div>
+      {/* Bottom gradient fade */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
     </section>
   )
 }
